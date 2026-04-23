@@ -1,432 +1,137 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BIORIN - Order Now</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>BIORIN - Order</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Poppins', sans-serif;
-            color: #333;
-            line-height: 1.6;
-            background-color: #f8f9fa;
+            background: linear-gradient(135deg, #fef7f0 0%, #f8e8d8 50%, #e8d5c4 100%);
+            color: #4a4a4a;
             min-height: 100vh;
+            direction: rtl;
         }
-        .nav {
-            position: sticky;
-            top: 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid #e0e0e0;
-            z-index: 1000;
-            padding: 1rem 0;
-        }
-        .nav-container {
-            max-width: 1200px;
+        .page {
+            max-width: 600px;
             margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 2rem;
+            padding: 24px;
         }
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #000;
-        }
-        .logo span {
-            color: #a8d5ba;
-        }
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-        .nav-links a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        .nav-links a:hover {
-            color: #a8d5ba;
-        }
-        .order-container {
-            max-width: 800px;
-            margin: 2rem auto;
-            background: #fff;
+        header {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
             border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            overflow: hidden;
-        }
-        .order-header {
-            background: linear-gradient(135deg, #a8d5ba 0%, #8bc99d 100%);
-            color: #fff;
-            padding: 3rem 2rem;
+            padding: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
             text-align: center;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
-        .order-header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        .order-header p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-        .order-form {
-            padding: 3rem 2rem;
-        }
-        .form-group {
-            margin-bottom: 2rem;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: #333;
-        }
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 1rem;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            font-size: 1rem;
-            font-family: 'Poppins', sans-serif;
-            transition: border-color 0.3s;
-        }
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #a8d5ba;
-        }
-        .form-group textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-        .product-selection {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-        .product-option {
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            padding: 1rem;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-align: center;
-        }
-        .product-option:hover,
-        .product-option.selected {
-            border-color: #a8d5ba;
-            background: #f0f8f4;
-        }
-        .product-option h4 {
-            margin-bottom: 0.5rem;
-            color: #000;
-        }
-        .product-option .price {
-            font-weight: 700;
-            color: #a8d5ba;
-        }
-        .guarantees {
-            background: #f8f9fa;
-            padding: 2rem;
-            border-radius: 15px;
-            margin-bottom: 2rem;
-        }
-        .guarantees h3 {
-            text-align: center;
-            margin-bottom: 1.5rem;
-            color: #000;
-        }
-        .guarantee-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-        }
-        .guarantee-item {
-            text-align: center;
-            padding: 1rem;
-        }
-        .guarantee-icon {
+        h1 {
             font-size: 2rem;
-            margin-bottom: 0.5rem;
-            color: #a8d5ba;
+            background: linear-gradient(135deg, #d4a574, #f4e1c1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
         }
-        .guarantee-item h5 {
-            font-size: 1rem;
-            margin-bottom: 0.5rem;
-            color: #000;
+        p { color: #7a7a7a; }
+        form {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
-        .guarantee-item p {
-            font-size: 0.9rem;
-            color: #666;
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #4a4a4a;
         }
-        .btn {
-            background: #a8d5ba;
-            color: #fff;
-            padding: 1rem 2rem;
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid rgba(212, 165, 116, 0.3);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.8);
+            font-family: inherit;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+        button {
+            background: linear-gradient(135deg, #d4a574, #f4e1c1);
+            color: white;
             border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
+            padding: 12px;
+            border-radius: 25px;
+            font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s;
             width: 100%;
+            box-shadow: 0 5px 15px rgba(212, 165, 116, 0.3);
+            transition: all 0.3s ease;
         }
-        .btn:hover {
-            background: #8bc99d;
+        button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(168, 213, 186, 0.4);
+            box-shadow: 0 8px 25px rgba(212, 165, 116, 0.4);
         }
-        .contact-actions {
-            margin-top: 2rem;
-            text-align: center;
-        }
-        .contact-actions p {
-            margin-bottom: 1rem;
-            color: #333;
+        .back {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 10px 18px;
+            background: linear-gradient(135deg, #d4a574, #f4e1c1);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
             font-weight: 600;
+            box-shadow: 0 5px 15px rgba(212, 165, 116, 0.3);
+            transition: all 0.3s ease;
         }
-        .contact-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-        .btn.btn-secondary {
-            width: auto;
-            background: #333;
-            color: #fff;
-            padding: 0.9rem 1.8rem;
-        }
-        .btn.btn-secondary:hover {
-            background: #555;
+        .back:hover {
             transform: translateY(-2px);
-        }
-        .footer {
-            background: #000;
-            color: #fff;
-            padding: 3rem 2rem 1rem;
-            text-align: center;
-        }
-        .footer p {
-            color: #666;
-        }
-        @media (max-width: 768px) {
-            .nav-container {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            .nav-links {
-                gap: 1rem;
-            }
-            .order-container {
-                margin: 1rem;
-            }
-            .product-selection {
-                grid-template-columns: 1fr;
-            }
-            .guarantee-list {
-                grid-template-columns: 1fr;
-            }
-            .badges {
-                flex-direction: column;
-                gap: 1rem;
-            }
+            box-shadow: 0 8px 25px rgba(212, 165, 116, 0.4);
         }
     </style>
 </head>
 <body>
-    <nav class="nav">
-        <div class="nav-container">
-            <div class="logo">BIO<span>RIN</span></div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="BIORIN_product1.html">Products</a></li>
-                <li><a href="#order">Order</a></li>
-            </ul>
-        </div>
-    </nav>
+    <div class="page">
+        <header>
+            <h1>Order Form</h1>
+            <p>Please fill in your details to place your order.</p>
+            <a href="BIORIN.html" class="back">Back to Main</a>
+        </header>
+        <form action="mailto:alaawaleed2003.36@gmail.com" method="post" enctype="text/plain">
+            <label for="product">Product:</label>
+            <select id="product" name="product" required>
+                <option value="">Select Product</option>
+                <option value="Body Splash">Body Splash</option>
+                <option value="Body Butter">Body Butter</option>
+            </select>
 
-    <div class="order-container">
-        <div class="order-header">
-            <h1>Order Your BIORIN Product</h1>
-            <p>Experience the natural difference. Fast shipping and 30-day satisfaction guarantee.</p>
-        </div>
+            <label for="type">Type:</label>
+            <select id="type" name="type" required>
+                <option value="">Select Type</option>
+                <option value="🌸 Blush Velvet | Double J’adore">🌸 Blush Velvet | Double J’adore</option>
+                <option value="🌹 Rose Berry | Double Burberry Her">🌹 Rose Berry | Double Burberry Her</option>
+                <option value="☕ Latte Plus | Double Bianco Latte">☕ Latte Plus | Double Bianco Latte</option>
+                <option value="🌸 Blush Velvet – دوب جادور">🌸 Blush Velvet – دوب جادور</option>
+                <option value="🍓 Rosé Berry – دوب بربري هير">🍓 Rosé Berry – دوب بربري هير</option>
+                <option value="☕ Latte Bliss – دوب بيانكو لاتيه">☕ Latte Bliss – دوب بيانكو لاتيه</option>
+            </select>
 
-        <form class="order-form" action="#" method="post">
-            <div class="form-group">
-                <label for="name">Full Name *</label>
-                <input type="text" id="name" name="name" required>
-            </div>
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" min="1" value="1" required>
 
-            <div class="form-group">
-                <label for="phone">Phone Number *</label>
-                <input type="tel" id="phone" name="phone" required>
-            </div>
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required>
 
-            <div class="form-group">
-                <label for="email">Email Address *</label>
-                <input type="email" id="email" name="email" required>
-            </div>
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" rows="4" required></textarea>
 
-            <div class="form-group">
-                <label for="address">Shipping Address *</label>
-                <textarea id="address" name="address" placeholder="Street address, city, state, ZIP code" required></textarea>
-                <p style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">Orders are delivered within Egypt. Please provide a complete address for accurate delivery.</p>
-            </div>
-
-            <div class="form-group">
-                <label>Select Your Products *</label>
-                <p style="font-size: 0.95rem; color: #666; margin-bottom: 1rem;">يمكنك اختيار أكثر من منتج واحد بالنقر على المنتجات.</p>
-                <div class="product-selection">
-                    <div class="product-option" data-product="Blush Velvet Splash">
-                        <h4>Blush Velvet Splash</h4>
-                        <div class="price">$24.99</div>
-                        <p>Luxurious softness inspired by J'adore. A delicate, floral fragrance.</p>
-                    </div>
-                    <div class="product-option" data-product="Latte Plus Splash">
-                        <h4>Latte Plus Splash</h4>
-                        <div class="price">$24.99</div>
-                        <p>A smooth coffee blend that provides warmth and comfort.</p>
-                    </div>
-                    <div class="product-option" data-product="Rose Berry Splash">
-                        <h4>Rose Berry Splash</h4>
-                        <div class="price">$24.99</div>
-                        <p>A bright, floral-berry splash with fresh rose notes.</p>
-                    </div>
-                    <div class="product-option" data-product="Rose Berry Body Butter">
-                        <h4>Rose Berry Body Butter</h4>
-                        <div class="price">$29.99</div>
-                        <p>A bright berry cream with delicate rose notes that leaves skin glowing.</p>
-                    </div>
-                    <div class="product-option" data-product="Latte Bliss Body Butter">
-                        <h4>Latte Bliss Body Butter</h4>
-                        <div class="price">$29.99</div>
-                        <p>Rich, creamy body butter for deeply nourished skin.</p>
-                    </div>
-                    <div class="product-option" data-product="Velvet Cream Body Butter">
-                        <h4>Velvet Cream Body Butter</h4>
-                        <div class="price">$29.99</div>
-                        <p>Ultra-rich hydration with a silky touch, perfect for dry or sensitive skin.</p>
-                    </div>
-                </div>
-                <input type="hidden" id="selected-product" name="product" required>
-            </div>
-
-            <div class="form-group">
-                <label for="quantity">Quantity</label>
-                <select id="quantity" name="quantity">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="notes">Special Instructions (Optional)</label>
-                <textarea id="notes" name="notes" placeholder="Any special delivery instructions or notes"></textarea>
-            </div>
-
-            <div class="guarantees">
-                <h3>Why Choose BIORIN?</h3>
-                <div class="guarantee-list">
-                    <div class="guarantee-item">
-                        <div class="guarantee-icon">🌿</div>
-                        <h5>100% Natural</h5>
-                        <p>Cruelty-free, sulfate-free, and paraben-free formulas</p>
-                    </div>
-                    <div class="guarantee-item">
-                        <div class="guarantee-icon">🚚</div>
-                        <h5>Free Shipping</h5>
-                        <p>Free standard shipping on all orders over $25</p>
-                    </div>
-                    <div class="guarantee-item">
-                        <div class="guarantee-icon">🔒</div>
-                        <h5>30-Day Guarantee</h5>
-                        <p>Love it or return it within 30 days for a full refund</p>
-                    </div>
-                    <div class="guarantee-item">
-                        <div class="guarantee-icon">⭐</div>
-                        <h5>4.9/5 Rating</h5>
-                        <p>Trusted by thousands of satisfied customers</p>
-                    </div>
-                </div>
-            </div>
-
-            <button type="submit" class="btn">Place Order</button>
+            <button type="submit">Send Order</button>
         </form>
-
-        <div class="contact-actions">
-            <p>تواصل معنا مباشرةً عبر:</p>
-            <div class="contact-buttons">
-                <a href="https://wa.me/201140278661" target="_blank" class="btn btn-secondary">واتساب</a>
-                <a href="mailto:alaawaleed2003.36@gmail.com?subject=طلب%20من%20BIORIN" class="btn btn-secondary">إيميل</a>
-            </div>
-        </div>
     </div>
-
-    <script>
-        // Product selection
-        const productOptions = document.querySelectorAll('.product-option');
-        const selectedProductInput = document.getElementById('selected-product');
-
-        function updateSelectedProducts() {
-            const selected = Array.from(productOptions)
-                .filter(option => option.classList.contains('selected'))
-                .map(option => option.dataset.product);
-
-            selectedProductInput.value = selected.join(', ');
-            return selected;
-        }
-
-        productOptions.forEach(option => {
-            option.addEventListener('click', () => {
-                option.classList.toggle('selected');
-                updateSelectedProducts();
-            });
-        });
-
-        // Form submission: send order details to WhatsApp and email
-        document.querySelector('.order-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-
-            const name = document.getElementById('name').value.trim();
-            const phone = document.getElementById('phone').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const address = document.getElementById('address').value.trim();
-            const selectedProducts = updateSelectedProducts();
-            const quantity = document.getElementById('quantity').value;
-            const notes = document.getElementById('notes').value.trim();
-
-            if (selectedProducts.length === 0) {
-                alert('Please select at least one product before submitting your order.');
-                return;
-            }
-
-            const productText = selectedProducts.join(' | ');
-            const message = `New BIORIN Order:\n\nName: ${name}\nPhone: ${phone}\nEmail: ${email}\nAddress: ${address}\nProducts: ${productText}\nQuantity: ${quantity}${notes ? `\nNotes: ${notes}` : ''}`;
-            const whatsappNumber = '201140278661';
-            const emailAddress = 'alaawaleed2003.36@gmail.com';
-
-            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-            const mailtoUrl = `mailto:${emailAddress}?subject=${encodeURIComponent('New BIORIN Order')}&body=${encodeURIComponent(message)}`;
-
-            window.open(whatsappUrl, '_blank');
-            window.location.href = mailtoUrl;
-        });
-    </script>
 </body>
-</html>
+</html></content>
+<parameter name="filePath">e:\ASKIM\order.html
